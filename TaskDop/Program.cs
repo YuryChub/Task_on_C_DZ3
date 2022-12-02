@@ -16,20 +16,20 @@
 // 1 2 3	           6
 
 Console.Clear();
-int [] array = {1,222,500,4};
-int n = array.Length;
-int AMax = 0;
-int A3Sum = 0;
+int [] array = {2, 1, 3, 4};
+int n = array.Length, AMax = 0, A3Sum = 0, A3Sum1 = 0, A3Sum2 = 0;
 for (int i = 1; i < n-1; i++)
 {
-// if (array [i] > AMax)
-   // AMax = array[i];
     A3Sum = array [i-1] + array [i] + array [i+1];
-    // Console.WriteLine(i-1);
-    Console.WriteLine(A3Sum);
-
-//Console.WriteLine(array [i]);
+        if (A3Sum > AMax)
+            AMax = A3Sum;
 }
-// Console.WriteLine(AMax);
+A3Sum1 = array [0] + array [1] + array [n-1];
+A3Sum2 = array [0] + array [n-2] + array [n-1];
 
-// Console.WriteLine(n);
+if (AMax > A3Sum1 && AMax > A3Sum2)
+    Console.WriteLine($"Максимум на 3-х кустах = {AMax}");
+    else if (AMax < A3Sum1 && AMax > A3Sum2)
+        Console.WriteLine($"Максимум на 3-х кустах = {A3Sum1}");
+    else
+        Console.WriteLine($"Максимум на 3-х кустах = {A3Sum2}");
